@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ModMetaData>
+    <name>Untitled Goose Mod</name>
+    <author>Scurvyez</author>
+    <packageId>Scurvyez.UntitledGooseMod</packageId>
+    <supportedVersions>
+        <li>1.5</li>
+    </supportedVersions>
+
+<description>
+Discord: steveo.o
+steam: Scurvyez
+
+Geese cannot be trusted.
+Geese can periodically enter various mental states.
+They may start stealing items from your storage and taking them anywhere they see fit.
+They may lock on to one unfortunate child and terrorize them for an unspecified time.
+Colonists can be ordered to stop the geese from continuing their shenanigans. It is not guaranteed the colonist will succeed though.
+</description>
+
+</ModMetaData>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="MoteBase">
+        <defName>UGM_Mote_MischievousAnimal</defName>
+        <thingClass>MoteAttached</thingClass>
+        <altitudeLayer>MetaOverlays</altitudeLayer>
+        <mote>
+            <rotateTowardsMoveDirection>true</rotateTowardsMoveDirection>
+            <attachedDrawOffset>(1, 0, 1)</attachedDrawOffset>
+            <fadeInTime>0.2</fadeInTime>
+            <fadeOutTime>0.2</fadeOutTime>
+            <solidTime>3</solidTime>
+        </mote>
+        <graphicData>
+            <texPath>UntitledGooseMod/Things/Motes/gooseMischievousRun</texPath>
+            <drawSize>0.8</drawSize>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="MoteBase">
+        <defName>UGM_Mote_TyrannicalAnimal</defName>
+        <thingClass>MoteAttached</thingClass>
+        <altitudeLayer>MetaOverlays</altitudeLayer>
+        <mote>
+            <rotateTowardsMoveDirection>true</rotateTowardsMoveDirection>
+            <attachedDrawOffset>(1, 0, 1)</attachedDrawOffset>
+            <fadeInTime>0.4</fadeInTime>
+            <fadeOutTime>0.4</fadeOutTime>
+            <solidTime>12</solidTime>
+        </mote>
+        <graphicData>
+            <texPath>UntitledGooseMod/Things/Motes/gooseTyrannicalScream</texPath>
+            <drawSize>0.8</drawSize>
+        </graphicData>
+    </ThingDef>
+
+</Defs>

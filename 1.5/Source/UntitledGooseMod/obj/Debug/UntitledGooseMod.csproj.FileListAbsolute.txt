@@ -1,0 +1,4 @@
+S:\Games\Steam\steamapps\common\RimWorld\Mods\UntitledGooseMod\1.5\Assemblies\UntitledGooseMod.dll
+S:\Games\Steam\steamapps\common\RimWorld\Mods\UntitledGooseMod\1.5\Source\UntitledGooseMod\obj\Debug\UntitledGooseMod.csproj.AssemblyReference.cache
+S:\Games\Steam\steamapps\common\RimWorld\Mods\UntitledGooseMod\1.5\Source\UntitledGooseMod\obj\Debug\UntitledGooseMod.csproj.CoreCompileInputs.cache
+S:\Games\Steam\steamapps\common\RimWorld\Mods\UntitledGooseMod\1.5\Source\UntitledGooseMod\obj\Debug\UntitledGooseMod.dll
