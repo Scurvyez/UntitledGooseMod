@@ -1,4 +1,5 @@
-﻿using UntitledGooseMod.Debugging;
+﻿using System;
+using UntitledGooseMod.Debugging;
 using Verse;
 
 namespace UntitledGooseMod
@@ -8,7 +9,9 @@ namespace UntitledGooseMod
     {
         static UGMMain()
         {
-            UGMLog.Message($"Nothing to report. Beware the geese...");
+            UGMLog.Message($"{DateTime.Now.Date.ToShortDateString()} " +
+                           $"[1.5 Release | Nothing to report.] " +
+                           $"Beware the geese...");
         }
     }
 }

@@ -1,10 +1,8 @@
 using System.Collections.Generic;
 using RimWorld;
-using UnityEngine;
 using UntitledGooseMod.Defs;
 using Verse;
 using Verse.AI;
-using Verse.Sound;
 
 namespace UntitledGooseMod.JobDrivers
 {
@@ -13,6 +11,7 @@ namespace UntitledGooseMod.JobDrivers
         private const TargetIndex TargetThingInd = TargetIndex.A;
         private const TargetIndex DestCellInd = TargetIndex.B;
         
+        private AnimationDef _mischiefWaddleAnimation;
         private Mote _mischiefMote;
         
         public override bool TryMakePreToilReservations(bool errorOnFailed)
@@ -26,18 +25,18 @@ namespace UntitledGooseMod.JobDrivers
             this.FailOnDestroyedOrNull(TargetThingInd);
             this.FailOnBurningImmobile(DestCellInd);
             
+            _mischiefWaddleAnimation = UGMDefOf.UGM_MischievousWaddleAnimation;
+            
             yield return Toils_Reserve.Reserve(TargetThingInd);
             yield return Toils_Reserve.Reserve(DestCellInd);
-            yield return Toils_Goto.GotoThing(TargetThingInd, PathEndMode.ClosestTouch)
-                .FailOnDespawnedOrNull(TargetThingInd);
-            
-            yield return Toils_General.Do(delegate
+            Toil gotoThingToil = Toils_Goto.GotoThing(TargetThingInd, 
+                    PathEndMode.ClosestTouch).FailOnDespawnedOrNull(TargetThingInd);
+            gotoThingToil.tickAction = () =>
             {
-                FleckMaker.Static(pawn.TrueCenter() , pawn.Map, FleckDefOf.MetaPuff, 2f);
-                
-                if (!Rand.Chance(0.25f)) return;
-                UGMDefOf.Pawn_Goose_Call.PlayOneShot(pawn);
-            });
+                JobDriverUtils.TryPlayWaddleAnimation(pawn, 
+                    _mischiefWaddleAnimation);
+            };
+            yield return gotoThingToil;
             
             yield return Toils_Haul.StartCarryThing(TargetThingInd);
             
@@ -46,26 +45,22 @@ namespace UntitledGooseMod.JobDrivers
             {
                 if (job.GetTarget(DestCellInd).IsValid)
                 {
-                    // easy entry points for effects/anything else when carrying thing to cell
-                    if (_mischiefMote == null || _mischiefMote.Destroyed)
-                    {
-                        _mischiefMote = MoteMaker.MakeAttachedOverlay(pawn, 
-                            UGMDefOf.UGM_Mote_MischievousAnimal, Vector3.zero);
-                    }
+                    JobDriverUtils.TryDoHonkEffect(pawn, ref _mischiefMote);
                 }
+            });
+            carryToil.tickAction = () =>
+            {
+                JobDriverUtils.TryPlayWaddleAnimation(pawn, 
+                    _mischiefWaddleAnimation);
+            };
+            carryToil.AddFinishAction(() =>
+            {
+                pawn.Drawer.renderer.SetAnimation(null);
             });
             yield return carryToil;
             
             Toil placeToil = Toils_Haul.PlaceHauledThingInCell(DestCellInd,
                 null, storageMode: false);
-            placeToil.AddPreInitAction(() =>
-            {
-                if (job.GetTarget(DestCellInd).IsValid)
-                {
-                    // easy entry points for effects/anything else when placing thing in cell
-                    
-                }
-            });
             placeToil.AddFinishAction(() =>
             {
                 Thing carriedThing = job.GetTarget(TargetThingInd).Thing;

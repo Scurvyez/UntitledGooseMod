@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <AnimationDef>
+        <defName>UGM_MischievousWaddleAnimation</defName>
+        <durationTicks>30</durationTicks>
+        <startOnRandomTick>false</startOnRandomTick>
+        <playWhenDowned>false</playWhenDowned>
+        <scale>1</scale>
+        <animationParts>
+            <li>
+                <key>Root</key>
+                <value>
+                    <workerClass>AnimationWorker_Keyframes</workerClass>
+                    <keyframes>
+                        <li><tick>0</tick><angle>0</angle></li>
+                        <li><tick>7.5</tick><angle>8</angle></li>
+                        <li><tick>15</tick><angle>0</angle></li>
+                        <li><tick>23</tick><angle>-8</angle></li>
+                        <li><tick>30</tick><angle>0</angle></li>
+                    </keyframes>
+                </value>
+            </li>
+        </animationParts>
+    </AnimationDef>
+
+</Defs>

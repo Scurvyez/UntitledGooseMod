@@ -1,10 +1,7 @@
-using System.Text;
 using Verse;
 using HarmonyLib;
 using RimWorld;
-using UntitledGooseMod.Debugging;
 using UntitledGooseMod.Defs;
-using UntitledGooseMod.Defs.DefModExtensions;
 using UntitledGooseMod.MentalStates;
 
 namespace UntitledGooseMod
@@ -30,7 +27,7 @@ namespace UntitledGooseMod
                 or MentalState_SpookedAnimal)) 
                 return;
             
-            __result = true;;
+            __result = true;
         }
     }
 }

@@ -67,6 +67,7 @@
     <Compile Include="FinderUtils\GooseTargetFinder.cs" />
     <Compile Include="Harmony\HarmonyPatches.cs" />
     <Compile Include="IncidentWorkers\IncidentWorker_MischievousGeeseArrival.cs" />
+    <Compile Include="JobDrivers\JobDriverUtils.cs" />
     <Compile Include="JobDrivers\JobDriver_GooseChaseChildren.cs" />
     <Compile Include="JobDrivers\JobDriver_GooseHaulNearby.cs" />
     <Compile Include="JobDrivers\JobDriver_GooseSpookedFleeShort.cs" />

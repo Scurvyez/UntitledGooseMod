@@ -16,9 +16,9 @@ namespace UntitledGooseMod.Defs
         public static JobDef UGM_SpookedFleeShort;
         public static SoundDef Pawn_Goose_Call;
         public static SoundDef Pawn_Goose_Angry;
-        public static ThingDef UGM_Mote_MischievousAnimal;
         public static ThingDef UGM_Mote_TyrannicalAnimal;
-    
+        public static AnimationDef UGM_MischievousWaddleAnimation;
+        
         static UGMDefOf()
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(UGMDefOf));

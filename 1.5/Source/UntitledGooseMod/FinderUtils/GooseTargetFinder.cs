@@ -83,7 +83,7 @@ namespace UntitledGooseMod.FinderUtils
             if (thing.def == ThingDefOf.Gold) return 1000f;
             if (thing.Stuff == ThingDefOf.Gold) return 75f;
             if (thing.Stuff == ThingDefOf.Silver) return 25f;
-            return 10f;
+            return 5f;
         }
         
         public static bool HasEnoughTargets(Pawn goose, int minimumCount)

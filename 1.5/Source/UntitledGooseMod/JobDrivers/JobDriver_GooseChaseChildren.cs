@@ -1,10 +1,8 @@
 using System.Collections.Generic;
 using RimWorld;
-using UnityEngine;
 using UntitledGooseMod.Defs;
 using Verse;
 using Verse.AI;
-using Verse.Sound;
 
 namespace UntitledGooseMod.JobDrivers
 {
@@ -14,7 +12,8 @@ namespace UntitledGooseMod.JobDrivers
         private const int ChaseDistance = 5;
         private const int HonkInterval = 180;
         
-        private Mote _aggroMote;
+        private AnimationDef _mischiefWaddleAnimation;
+        private Mote _mischiefMote;
         
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
@@ -29,16 +28,16 @@ namespace UntitledGooseMod.JobDrivers
             
             Pawn goose = pawn;
             Pawn child = job.GetTarget(TargetChildInd).Pawn;
+            _mischiefWaddleAnimation = UGMDefOf.UGM_MischievousWaddleAnimation;
             
             Toil chaseChild = new()
             {
                 initAction = () =>
                 {
-                    if (_aggroMote == null || _aggroMote.Destroyed)
-                    {
-                        _aggroMote = MoteMaker.MakeAttachedOverlay(goose, 
-                            UGMDefOf.UGM_Mote_TyrannicalAnimal, Vector3.zero);
-                    }
+                    if (_mischiefMote is { Destroyed: false }) 
+                        return;
+                    
+                    JobDriverUtils.TryDoHonkEffect(pawn, ref _mischiefMote);
                 },
                 tickAction = () =>
                 {
@@ -47,6 +46,9 @@ namespace UntitledGooseMod.JobDrivers
                         EndJobWith(JobCondition.Incompletable);
                         return;
                     }
+                    
+                    JobDriverUtils.TryPlayWaddleAnimation(pawn, 
+                        _mischiefWaddleAnimation);
                     
                     if (!goose.Position.InHorDistOf(child.Position, ChaseDistance) 
                         || !goose.Position.WithinRegions(child.Position, Map,
@@ -74,18 +76,15 @@ namespace UntitledGooseMod.JobDrivers
                         if (!goose.IsHashIntervalTick(HonkInterval)) 
                             return;
                         
-                        if (Rand.Chance(0.5f))
-                        {
-                            UGMDefOf.Pawn_Goose_Call.PlayOneShot(pawn);
-                        }
-                        else
-                        {
-                            UGMDefOf.Pawn_Goose_Angry.PlayOneShot(pawn);
-                        }
+                        JobDriverUtils.TryDoHonkEffect(pawn, ref _mischiefMote);
                     }
                 },
                 defaultCompleteMode = ToilCompleteMode.Never
             };
+            chaseChild.AddFinishAction(() =>
+            {
+                pawn.Drawer?.renderer?.SetAnimation(null);
+            });
             yield return chaseChild;
         }
     }

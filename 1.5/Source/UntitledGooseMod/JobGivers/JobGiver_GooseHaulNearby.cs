@@ -45,7 +45,8 @@ namespace UntitledGooseMod.JobGivers
                 return null;
             }
             
-            Job job = JobMaker.MakeJob(UGMDefOf.UGM_GooseHaulNearby, targetThing, destCell);
+            Job job = JobMaker.MakeJob(UGMDefOf.UGM_GooseHaulNearby,
+                targetThing, destCell);
             job.count = 1;
             return job;
         }

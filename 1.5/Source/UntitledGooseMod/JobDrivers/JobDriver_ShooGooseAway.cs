@@ -44,7 +44,7 @@ namespace UntitledGooseMod.JobDrivers
                         && goose.CurJobDef != UGMDefOf.UGM_GooseChaseChildren)
                         return;
                     
-                    string moteText = RandomShooText();
+                    string moteText = JobDriverUtils.RandomShooText();
                     MoteMaker.ThrowText((pawn.DrawPos + goose.DrawPos) / 2f, 
                         goose.Map, moteText, 5f);
                     
@@ -77,23 +77,6 @@ namespace UntitledGooseMod.JobDrivers
                 defaultCompleteMode = ToilCompleteMode.Instant
             };
             yield return shooGooseToil;
-        }
-        
-        private static string RandomShooText()
-        {
-            string[] shooTexts =
-            [
-                "Shoo!", 
-                "Get outta here!", 
-                "Bad goose!", 
-                "Scram!", 
-                "Go on, git!", 
-                "No geese allowed!", 
-                "Shoo, featherbrain!",
-                "Stop that!",
-                "Beat it, honker!"
-            ];
-            return shooTexts.RandomElement();
         }
     }
 }
