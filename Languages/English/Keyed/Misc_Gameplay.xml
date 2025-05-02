@@ -7,11 +7,11 @@
     <!-- MOD SETTINGS -->
     <UGM_ModName>Untitled Goose Mod</UGM_ModName>
     <UGM_AllowMischievousGeese>Allow mischievous geese</UGM_AllowMischievousGeese>
-    <UGM_AllowMischievousGeeseDesc>Enable to let geese partake in tomfoolery.\n\nThis means geese can steal items from storage and move them around. Protect your valuable. Oh... and geese will be able to open doors.\n\n(Colonists can be ordered to stop the goose.)</UGM_AllowMischievousGeeseDesc>
+    <UGM_AllowMischievousGeeseDesc>Enable to let geese partake in tomfoolery.\n\nThis means geese can steal items from storage and move them around. Protect your valuables. Oh... and geese will be able to open doors.\n\n(Colonists can be ordered to stop the geese.)</UGM_AllowMischievousGeeseDesc>
     <UGM_AllowTyrannicalGeese>Allow tyrannical geese</UGM_AllowTyrannicalGeese>
-    <UGM_AllowTyrannicalGeeseDesc>Enable to let geese periodically chase and terrorize children.\n\nDon't worry, it builds character.\n\n(Colonists can be ordered to stop the goose.)</UGM_AllowTyrannicalGeeseDesc>
+    <UGM_AllowTyrannicalGeeseDesc>Enable to let geese periodically chase and terrorize children.\n\nDon't worry, it builds character.\n\n(Colonists can be ordered to stop the geese.)</UGM_AllowTyrannicalGeeseDesc>
     <UGM_ShooGooseAwaySuccessChance>Shoo goose away success</UGM_ShooGooseAwaySuccessChance>
-    <UGM_ShooGooseAwaySuccessChanceDesc>Adjusting this slider alters the initial success chance for a colonist to shoo away a pawn. If set to 1.0 then the secondary chance check is bypassed entirely. (Secondary chance is based on pawn's Animals skill level.)</UGM_ShooGooseAwaySuccessChanceDesc>
+    <UGM_ShooGooseAwaySuccessChanceDesc>Adjusting this slider alters the initial success chance for a colonist to shoo away a pawn.\n\nIf set to 1.00 then the secondary chance check is bypassed entirely and the colonist wil always succeed in shooing the goose away.\n\n(Secondary chance is based on pawn's Animals skill level.)</UGM_ShooGooseAwaySuccessChanceDesc>
 
     <!-- COLONIST SHOO AWAY TEXT OPTIONS -->
     <UGM_ShooSuccess1>Shoo!</UGM_ShooSuccess1>

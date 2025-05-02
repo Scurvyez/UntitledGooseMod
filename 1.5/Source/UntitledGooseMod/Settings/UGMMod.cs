@@ -50,13 +50,6 @@ namespace UntitledGooseMod.Settings
                 "UGM_AllowMischievousGeeseDesc".Translate());
             list1.Gap(Spacing);
             
-            DrawSettingWithSliderAndTextField(vROffset1, list1, 
-                "UGM_ShooGooseAwaySuccessChance".Translate(), 
-                "UGM_ShooGooseAwaySuccessChanceDesc".Translate(), 
-                ref _settings._shooGooseAwaySuccessChance, 
-                0f, 1f);
-            list1.Gap(Spacing);
-            
             if (ModsConfig.BiotechActive)
             {
                 list1.CheckboxLabeled("UGM_AllowTyrannicalGeese".Translate(), 
@@ -64,6 +57,13 @@ namespace UntitledGooseMod.Settings
                     "UGM_AllowTyrannicalGeeseDesc".Translate());
                 list1.Gap(Spacing);
             }
+            
+            DrawSettingWithSliderAndTextField(vROffset1, list1, 
+                "UGM_ShooGooseAwaySuccessChance".Translate(), 
+                "UGM_ShooGooseAwaySuccessChanceDesc".Translate(), 
+                ref _settings._shooGooseAwaySuccessChance, 
+                0f, 1f);
+            list1.Gap(Spacing);
             
             list1.End();
             Widgets.EndScrollView();

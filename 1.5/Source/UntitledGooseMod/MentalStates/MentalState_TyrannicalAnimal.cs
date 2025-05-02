@@ -22,9 +22,15 @@ namespace UntitledGooseMod.MentalStates
                 RecoverFromState();
             }
             
-            bool flag = false;
+            bool recoveredThisTick = false;
             if (pawn.IsHashIntervalTick(CheckInterval))
             {
+                if (pawn.Map?.dangerWatcher?.DangerRating == StoryDanger.High)
+                {
+                    RecoverFromState();
+                    recoveredThisTick = true;
+                }
+                
                 if (TargetChild == null || !GooseTargetFinder
                         .IsChildValid(TargetChild, pawn))
                 {
@@ -33,17 +39,11 @@ namespace UntitledGooseMod.MentalStates
                     if (TargetChild == null)
                     {
                         RecoverFromState();
-                        flag = true;
+                        recoveredThisTick = true;
                     }
                 }
-                
-                if (pawn.Map.dangerWatcher.DangerRating == StoryDanger.High)
-                {
-                    RecoverFromState();
-                    flag = true;
-                }
             }
-            if (!flag)
+            if (!recoveredThisTick)
             {
                 base.MentalStateTick();
             }

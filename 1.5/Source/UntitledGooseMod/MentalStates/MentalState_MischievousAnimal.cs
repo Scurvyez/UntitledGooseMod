@@ -18,7 +18,7 @@ namespace UntitledGooseMod.MentalStates
                 RecoverFromState();
             }
             
-            bool flag = false;
+            bool recoveredThisTick = false;
             if (pawn.IsHashIntervalTick(CheckInterval))
             {
                 if (TargetThing == null || !GooseTargetFinder
@@ -28,11 +28,11 @@ namespace UntitledGooseMod.MentalStates
                     if (TargetThing == null)
                     {
                         RecoverFromState();
-                        flag = true;
+                        recoveredThisTick = true;
                     }
                 }
             }
-            if (!flag)
+            if (!recoveredThisTick)
             {
                 base.MentalStateTick();
             }

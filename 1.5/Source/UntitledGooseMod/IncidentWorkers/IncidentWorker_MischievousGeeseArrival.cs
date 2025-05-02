@@ -14,7 +14,8 @@ namespace UntitledGooseMod.IncidentWorkers
         {
             Map map = (Map)parms.target;
             
-            if (!UGMSettings.AllowMischievousGeese)
+            if (!UGMSettings.AllowMischievousGeese 
+                || map.dangerWatcher?.DangerRating == StoryDanger.High)
                 return false;
             
             if (map.gameConditionManager
@@ -26,13 +27,14 @@ namespace UntitledGooseMod.IncidentWorkers
                     .ConditionIsActive(GameConditionDefOf.NoxiousHaze)) 
                 return false;
             
+            if (map.mapPawns.AllPawnsSpawned
+                    .Count(p => p.def == UGMDefOf.Goose.race) >= 2)
+                return false;
+            
             if (!map.mapTemperature
                     .SeasonAndOutdoorTemperatureAcceptableFor(UGMDefOf.Goose.race)) 
                 return false;
             
-            if (map.mapPawns.AllPawnsSpawned
-                    .Count(p => p.def == UGMDefOf.Goose.race) >= 2)
-                return false;
             return TryFindBestEntryCell(map, out IntVec3 _);
         }
         
@@ -53,13 +55,14 @@ namespace UntitledGooseMod.IncidentWorkers
                 ext.incidentNumGeeseMin, ext.incidentNumGeeseMax);
             int exitAfterTicks = Rand.RangeInclusive(
                 ext.incidentExitMapMinTick, ext.incidentExitMapMaxTick);
-
+            
             MapComponent_MischievousGooseArrival mapComp = map
                 .GetComponent<MapComponent_MischievousGooseArrival>();
-
-            if (mapComp == null) return false;
-            mapComp.StartSpawningGeese(numGeese, cell, gooseKind, exitAfterTicks);
             
+            if (mapComp == null) 
+                return false;
+            
+            mapComp.StartSpawningGeese(numGeese, cell, gooseKind, exitAfterTicks);
             return true;
         }
         

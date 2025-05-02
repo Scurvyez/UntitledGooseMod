@@ -18,6 +18,7 @@ namespace UntitledGooseMod.Defs
         public static SoundDef Pawn_Goose_Angry;
         public static ThingDef UGM_Mote_TyrannicalAnimal;
         public static AnimationDef UGM_MischievousWaddleAnimation;
+        public static HediffDef PsychicInvisibility;
         
         static UGMDefOf()
         {

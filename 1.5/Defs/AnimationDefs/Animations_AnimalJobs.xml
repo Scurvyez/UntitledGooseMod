@@ -14,9 +14,11 @@
                     <workerClass>AnimationWorker_Keyframes</workerClass>
                     <keyframes>
                         <li><tick>0</tick><angle>0</angle></li>
-                        <li><tick>7.5</tick><angle>8</angle></li>
+                        <li><tick>3</tick><angle>3</angle></li>
+                        <li><tick>7</tick><angle>8</angle></li>
                         <li><tick>15</tick><angle>0</angle></li>
                         <li><tick>23</tick><angle>-8</angle></li>
+                        <li><tick>27</tick><angle>-3</angle></li>
                         <li><tick>30</tick><angle>0</angle></li>
                     </keyframes>
                 </value>

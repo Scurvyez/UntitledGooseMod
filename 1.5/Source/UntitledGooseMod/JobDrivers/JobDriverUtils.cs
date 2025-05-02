@@ -26,7 +26,6 @@ namespace UntitledGooseMod.JobDrivers
             {
                 pawn.Drawer?.renderer?.SetAnimation(null);
             }
-            
         }
         
         public static void TryDoHonkEffect(Pawn pawn, ref Mote mote)
