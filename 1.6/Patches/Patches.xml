@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <Operation Class="PatchOperationAddModExtension">
+        <xpath>Defs/ThingDef[defName="Goose"]</xpath>
+        <value>
+            <li Class="UntitledGooseMod.Defs.DefModExtensions.ModExtension_GooseUnhindered">
+                <minCarryDist>20</minCarryDist>
+                <maxCarryDist>25</maxCarryDist>
+                <incidentNumGeeseMin>1</incidentNumGeeseMin>
+                <incidentNumGeeseMax>10</incidentNumGeeseMax>
+                <incidentExitMapMinTick>10000</incidentExitMapMinTick>
+                <incidentExitMapMaxTick>30000</incidentExitMapMaxTick>
+            </li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="Goose"]/comps</xpath>
+        <value>
+            <li Class="UntitledGooseMod.ThingComponents.CompProperties_GooseBehaviorInterceptor" />
+        </value>
+    </Operation>
+
+</Patch>

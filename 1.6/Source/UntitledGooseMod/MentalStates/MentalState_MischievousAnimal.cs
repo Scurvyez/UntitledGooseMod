@@ -1,0 +1,53 @@
+using UntitledGooseMod.FinderUtils;
+using UntitledGooseMod.Settings;
+using Verse;
+using Verse.AI;
+
+namespace UntitledGooseMod.MentalStates
+{
+    public class MentalState_MischievousAnimal : MentalState
+    {
+        public Thing TargetThing;
+        
+        private const int CheckInterval = 500;
+        
+        public override void MentalStateTick(int delta)
+        {
+            if (!UGMSettings.AllowMischievousGeese)
+            {
+                RecoverFromState();
+            }
+            
+            bool recoveredThisTick = false;
+            if (pawn.IsHashIntervalTick(CheckInterval))
+            {
+                if (TargetThing == null || !GooseTargetFinder
+                        .IsThingValid(TargetThing, pawn))
+                {
+                    TargetThing = GooseTargetFinder.TargetThing(pawn);
+                    if (TargetThing == null)
+                    {
+                        RecoverFromState();
+                        recoveredThisTick = true;
+                    }
+                }
+            }
+            if (!recoveredThisTick)
+            {
+                base.MentalStateTick(delta);
+            }
+        }
+        
+        public override void PostStart(string reason)
+        {
+            base.PostStart(reason);
+            TargetThing = GooseTargetFinder.TargetThing(pawn);
+        }
+        
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_References.Look(ref TargetThing, "TargetThing");
+        }
+    }
+}
