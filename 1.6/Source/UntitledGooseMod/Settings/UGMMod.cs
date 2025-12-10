@@ -30,8 +30,7 @@ namespace UntitledGooseMod.Settings
         public override void DoSettingsWindowContents(Rect inRect)
         {
             _halfWidth = (inRect.width - 30) / 2;
-            LeftSideScrollViewHandler(new Rect(inRect.x, inRect.y, 
-                _halfWidth, inRect.height));
+            LeftSideScrollViewHandler(new Rect(inRect.x, inRect.y, _halfWidth, inRect.height));
         }
         
         private void LeftSideScrollViewHandler(Rect inRect)
@@ -46,23 +45,20 @@ namespace UntitledGooseMod.Settings
             list1.Gap(NewSectionGap);
             
             list1.CheckboxLabeled("UGM_AllowMischievousGeese".Translate(), 
-                ref _settings._allowMischievousGeese, 
-                "UGM_AllowMischievousGeeseDesc".Translate());
+                ref _settings._allowMischievousGeese, "UGM_AllowMischievousGeeseDesc".Translate());
             list1.Gap(Spacing);
             
             if (ModsConfig.BiotechActive)
             {
                 list1.CheckboxLabeled("UGM_AllowTyrannicalGeese".Translate(), 
-                    ref _settings._allowTyrannicalGeese, 
-                    "UGM_AllowTyrannicalGeeseDesc".Translate());
+                    ref _settings._allowTyrannicalGeese, "UGM_AllowTyrannicalGeeseDesc".Translate());
                 list1.Gap(Spacing);
             }
             
             DrawSettingWithSliderAndTextField(vROffset1, list1, 
                 "UGM_ShooGooseAwaySuccessChance".Translate(), 
                 "UGM_ShooGooseAwaySuccessChanceDesc".Translate(), 
-                ref _settings._shooGooseAwaySuccessChance, 
-                0f, 1f);
+                ref _settings._shooGooseAwaySuccessChance, 0f, 1f);
             list1.Gap(Spacing);
             
             list1.End();
@@ -82,25 +78,21 @@ namespace UntitledGooseMod.Settings
             Widgets.Label(labelRect, labelText);
             TooltipHandler.TipRegion(labelRect, tooltipText);
             
-            Rect textFieldRect = new(sliderWidth - Spacing, 
-                list.CurHeight, TextFieldWidth, ElementHeight);
+            Rect textFieldRect = new(sliderWidth - Spacing, list.CurHeight, TextFieldWidth, ElementHeight);
             
             string textValue = typeof(T) == typeof(int) ? settingFloat
                 .ToString("F0") : settingFloat.ToString("F2");
             
-            Widgets.TextFieldNumeric(textFieldRect, ref settingFloat, 
-                ref textValue, minFloat, maxFloat);
+            Widgets.TextFieldNumeric(textFieldRect, ref settingFloat, ref textValue, minFloat, maxFloat);
             
             list.Gap(Spacing * 1.75f);
             
             if (typeof(T) == typeof(int) || typeof(T) == typeof(float))
             {
-                Rect sliderRect = new(0, list.CurHeight, 
-                    sliderWidth + TextFieldWidth + Spacing, ElementHeight);
+                Rect sliderRect = new(0, list.CurHeight, sliderWidth + TextFieldWidth + Spacing, ElementHeight);
                 
                 float sliderValue = settingFloat;
-                sliderValue = Widgets.HorizontalSlider(sliderRect, 
-                    sliderValue, minFloat, maxFloat, true);
+                sliderValue = Widgets.HorizontalSlider(sliderRect, sliderValue, minFloat, maxFloat, true);
                 settingFloat = sliderValue;
                 settingValue = (T)Convert.ChangeType(settingFloat, typeof(T));
             }

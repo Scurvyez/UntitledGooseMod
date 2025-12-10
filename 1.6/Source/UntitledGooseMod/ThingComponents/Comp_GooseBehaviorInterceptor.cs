@@ -15,13 +15,10 @@ namespace UntitledGooseMod.ThingComponents
                 yield return option;
             }
             
-            if (selPawn.Faction != Faction.OfPlayer 
-                || parent is not Pawn goose 
-                || goose.kindDef != UGMDefOf.Goose) 
+            if (selPawn.Faction != Faction.OfPlayer || parent is not Pawn goose || goose.kindDef != UGMDefOf.Goose) 
                 yield break;
             
-            if (goose.CurJobDef == UGMDefOf.UGM_GooseHaulNearby
-                || goose.CurJobDef == UGMDefOf.UGM_GooseChaseChildren)
+            if (goose.CurJobDef == UGMDefOf.UGM_GooseHaulNearby || goose.CurJobDef == UGMDefOf.UGM_GooseChaseChildren)
             {
                 yield return new FloatMenuOption(
                     "UGM_ShooAwayGoose".Translate(goose.NameShortColored),
@@ -30,9 +27,7 @@ namespace UntitledGooseMod.ThingComponents
                         Job shooJob = JobMaker.MakeJob(UGMDefOf.UGM_ShooGooseAway, goose);
                         selPawn.jobs.TryTakeOrderedJob(shooJob);
                     },
-                    MenuOptionPriority.Default,
-                    null,
-                    goose
+                    MenuOptionPriority.Default, null, goose
                 );
             }
         }
@@ -40,7 +35,6 @@ namespace UntitledGooseMod.ThingComponents
     
     public class CompProperties_GooseBehaviorInterceptor : CompProperties
     {
-        public CompProperties_GooseBehaviorInterceptor() => 
-            compClass = typeof(Comp_GooseBehaviorInterceptor);
+        public CompProperties_GooseBehaviorInterceptor() => compClass = typeof(Comp_GooseBehaviorInterceptor);
     }
 }

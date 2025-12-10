@@ -18,7 +18,7 @@
     <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>S:\Games\Steam\steamapps\common\RimWorld\Mods\UntitledGooseMod\1.6\Assemblies\</OutputPath>
+    <OutputPath>D:\SteamLibrary\steamapps\common\RimWorld\Mods\UntitledGooseMod\1.6\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>

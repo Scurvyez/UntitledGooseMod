@@ -14,8 +14,7 @@ namespace UntitledGooseMod.JobGivers
             if (pawn.kindDef != UGMDefOf.Goose)
                 return null;
             
-            if (pawn.MentalState is not MentalState_MischievousAnimal 
-                    { TargetThing: var targetThing })
+            if (pawn.MentalState is not MentalState_MischievousAnimal { TargetThing: var targetThing })
                 return null;
             
             if (targetThing is not { Spawned: true } 
@@ -23,8 +22,8 @@ namespace UntitledGooseMod.JobGivers
                 || !pawn.CanReach(targetThing, PathEndMode.ClosestTouch, Danger.Deadly))
                 return null;
             
-            ModExtension_GooseUnhindered ext = pawn.def
-                .GetModExtension<ModExtension_GooseUnhindered>();
+            ModExtension_GooseUnhindered ext = pawn.def.GetModExtension<ModExtension_GooseUnhindered>();
+            
             if (ext == null) 
                 return null;
             
@@ -45,8 +44,7 @@ namespace UntitledGooseMod.JobGivers
                 return null;
             }
             
-            Job job = JobMaker.MakeJob(UGMDefOf.UGM_GooseHaulNearby,
-                targetThing, destCell);
+            Job job = JobMaker.MakeJob(UGMDefOf.UGM_GooseHaulNearby, targetThing, destCell);
             job.count = 1;
             return job;
         }

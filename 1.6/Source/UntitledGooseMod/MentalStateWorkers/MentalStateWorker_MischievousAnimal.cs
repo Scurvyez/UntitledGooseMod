@@ -16,8 +16,7 @@ namespace UntitledGooseMod.MentalStateWorkers
             if (!UGMSettings.AllowMischievousGeese)
                 return false;
             
-            if (pawn.kindDef != UGMDefOf.Goose 
-                || pawn.MentalState?.def == UGMDefOf.UGM_TyrannicalGoose)
+            if (pawn.kindDef != UGMDefOf.Goose || pawn.MentalState?.def == UGMDefOf.UGM_TyrannicalGoose)
                 return false;
             
             return GooseTargetFinder.HasEnoughTargets(pawn, 2);

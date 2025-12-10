@@ -33,8 +33,7 @@ namespace UntitledGooseMod.MapComponents
             if (_remainingGeese <= 0) return;
             if (Find.TickManager.TicksGame < _nextSpawnTick) return;
             
-            IntVec3 spawnLoc = CellFinder.RandomClosewalkCellNear(
-                _spawnCenter, map, 10);
+            IntVec3 spawnLoc = CellFinder.RandomClosewalkCellNear(_spawnCenter, map, 10);
             Pawn goose = PawnGenerator.GeneratePawn(_gooseKind);
             GenSpawn.Spawn(goose, spawnLoc, map, Rot4.Random);
             goose.mindState.exitMapAfterTick = Find.TickManager.TicksGame + _exitAfterTicks;

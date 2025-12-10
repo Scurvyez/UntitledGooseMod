@@ -9,9 +9,7 @@ namespace UntitledGooseMod
     {
         static UGMMain()
         {
-            UGMLog.Message($"{DateTime.Now.Date.ToShortDateString()} " +
-                           $"[1.5 Release | Nothing to report.] " +
-                           $"Beware the geese...");
+            UGMLog.Message($"{DateTime.Now.Date.ToShortDateString()} " + $"[1.5 Release | Nothing to report.]");
         }
     }
 }

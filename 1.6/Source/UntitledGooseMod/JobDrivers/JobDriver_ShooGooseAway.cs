@@ -16,8 +16,7 @@ namespace UntitledGooseMod.JobDrivers
         
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
-            return pawn.Reserve(job.GetTarget(TargetGooseInd), job, 
-                1, -1, null, errorOnFailed);
+            return pawn.Reserve(job.GetTarget(TargetGooseInd), job, 1, -1, null, errorOnFailed);
         }
         
         protected override IEnumerable<Toil> MakeNewToils()
@@ -35,9 +34,7 @@ namespace UntitledGooseMod.JobDrivers
             {
                 initAction = () =>
                 {
-                    if (goose == null 
-                        || goose.DestroyedOrNull() 
-                        || goose.DeadOrDowned)
+                    if (goose == null || goose.DestroyedOrNull() || goose.DeadOrDowned)
                         return;
                     
                     if (goose.CurJobDef != UGMDefOf.UGM_GooseHaulNearby
@@ -56,8 +53,7 @@ namespace UntitledGooseMod.JobDrivers
                         if (pawn.skills == null)
                             return;
                         
-                        int pawnsSkillLevel = Mathf.Clamp(pawn.skills
-                            .GetSkill(SkillDefOf.Animals).Level, 0, 20);
+                        int pawnsSkillLevel = Mathf.Clamp(pawn.skills.GetSkill(SkillDefOf.Animals).Level, 0, 20);
                         float secondaryChance = pawnsSkillLevel / 20f;
                         
                         if (Rand.Chance(secondaryChance))

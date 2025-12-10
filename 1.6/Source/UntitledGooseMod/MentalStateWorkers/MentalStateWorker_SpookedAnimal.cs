@@ -11,8 +11,7 @@ namespace UntitledGooseMod.MentalStateWorkers
             if (!base.StateCanOccur(pawn))
                 return false;
             
-            if (pawn.kindDef != UGMDefOf.Goose 
-                || pawn.MentalState?.def == UGMDefOf.UGM_SpookedGoose)
+            if (pawn.kindDef != UGMDefOf.Goose || pawn.MentalState?.def == UGMDefOf.UGM_SpookedGoose)
                 return false;
             
             return pawn.Spawned && !pawn.DeadOrDowned;

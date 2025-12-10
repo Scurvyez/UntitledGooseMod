@@ -21,8 +21,7 @@ namespace UntitledGooseMod.MentalStates
             bool recoveredThisTick = false;
             if (pawn.IsHashIntervalTick(CheckInterval))
             {
-                if (TargetThing == null || !GooseTargetFinder
-                        .IsThingValid(TargetThing, pawn))
+                if (TargetThing == null || !GooseTargetFinder.IsThingValid(TargetThing, pawn))
                 {
                     TargetThing = GooseTargetFinder.TargetThing(pawn);
                     if (TargetThing == null)

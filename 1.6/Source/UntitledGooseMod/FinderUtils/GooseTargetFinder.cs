@@ -82,8 +82,7 @@ namespace UntitledGooseMod.FinderUtils
             
             if (thing.def == ThingDefOf.Gold) return 1000f;
             if (thing.Stuff == ThingDefOf.Gold) return 75f;
-            if (thing.Stuff == ThingDefOf.Silver) return 25f;
-            return 5f;
+            return thing.Stuff == ThingDefOf.Silver ? 25f : 5f;
         }
         
         public static bool HasEnoughTargets(Pawn goose, int minimumCount)
@@ -136,9 +135,7 @@ namespace UntitledGooseMod.FinderUtils
             
             if (child.Spawned)
             {
-                return ignoreReachability 
-                       || goose.CanReach(child, 
-                           PathEndMode.Touch, Danger.Deadly);
+                return ignoreReachability || goose.CanReach(child, PathEndMode.Touch, Danger.Deadly);
             }
             return false;
         }

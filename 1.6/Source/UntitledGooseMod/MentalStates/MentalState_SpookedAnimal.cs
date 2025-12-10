@@ -21,8 +21,7 @@ namespace UntitledGooseMod.MentalStates
             if (!pawn.IsHashIntervalTick(60))
                 return;
             
-            if (pawn.CurJob != null 
-                && pawn.CurJobDef == UGMDefOf.UGM_SpookedFleeShort) 
+            if (pawn.CurJob != null && pawn.CurJobDef == UGMDefOf.UGM_SpookedFleeShort) 
                 return;
             
             if (!CellFinder.TryFindRandomReachableNearbyCell(
@@ -35,8 +34,7 @@ namespace UntitledGooseMod.MentalStates
             Job fleeJob = JobMaker.MakeJob(UGMDefOf.UGM_SpookedFleeShort, fleeDest);
             pawn.jobs.StartJob(fleeJob, JobCondition.InterruptForced);
             
-            MoteMaker.MakeAttachedOverlay(pawn, 
-                ThingDefOf.Mote_ColonistFleeing, Vector3.zero);
+            MoteMaker.MakeAttachedOverlay(pawn, ThingDefOf.Mote_ColonistFleeing, Vector3.zero);
         }
     }
 }

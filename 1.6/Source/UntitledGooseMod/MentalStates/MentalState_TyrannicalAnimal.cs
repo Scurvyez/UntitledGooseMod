@@ -12,8 +12,7 @@ namespace UntitledGooseMod.MentalStates
         
         private const int CheckInterval = 500;
         
-        public override string InspectLine => string
-            .Format(def.baseInspectLine, TargetChild.NameShortColored);
+        public override string InspectLine => string.Format(def.baseInspectLine, TargetChild.NameShortColored);
         
         public override void MentalStateTick(int delta)
         {
@@ -31,11 +30,9 @@ namespace UntitledGooseMod.MentalStates
                     recoveredThisTick = true;
                 }
                 
-                if (TargetChild == null || !GooseTargetFinder
-                        .IsChildValid(TargetChild, pawn))
+                if (TargetChild == null || !GooseTargetFinder.IsChildValid(TargetChild, pawn))
                 {
-                    TargetChild = GooseTargetFinder
-                        .ClosestChildForMaximumTerror(pawn);
+                    TargetChild = GooseTargetFinder.ClosestChildForMaximumTerror(pawn);
                     if (TargetChild == null)
                     {
                         RecoverFromState();
